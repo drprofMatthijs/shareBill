@@ -1,0 +1,122 @@
+.container{
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.flexFormDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#newParticipantName{
+    width: 85%;
+}
+
+#addPersonButton{
+    cursor: pointer;
+    font-size: 40px;
+    background-color: rgb(145, 54, 153);
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 6px 0 6px;
+}
+
+#currencyInput{
+    width: 75%;
+}
+
+#currencySelect{
+    max-width: max(13%, 60px);
+    margin-left: 6px;
+}
+
+#personForm{
+    margin-top: 3rem;
+}
+
+
+
+/* DISPLAY STYLING */
+/* DISPLAY STYLING */
+/* DISPLAY STYLING */
+
+.nothingContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-style: italic;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+
+.displayWrapper{
+    padding-top: 40px;
+}
+
+.displayTop{
+    margin-bottom: 1rem;
+    color: rgb(77, 73, 73);
+}
+
+.displayAmount{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+.resultDiv > div{
+    padding: 8px 5px;
+    border-radius: 2px;
+}
+
+.resultDiv > div:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.082);
+}
+
+.displayElement{
+    display: flex;
+    justify-content: space-between;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+#shareDiv{
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.shareButtons{
+    cursor: pointer;
+    font-size: 35px;
+    background-color: rgba(0, 0, 0, 0.082);
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 10px;
+}
+
+.removeButton{
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 900px){
+    .container, .nothingContainer{
+        width: 100%;
+        padding: 0 40px;
+    }
+    #addPersonButton{
+        font: 45px;
+    }
+    .displayWrapper{
+        padding-top: 0;
+    }
+}

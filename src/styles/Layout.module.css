@@ -1,0 +1,8 @@
+.mainContainer{
+    height: 100svh;
+    height: 100vh;
+    min-height: 500px;
+    background: linear-gradient(-30deg, rgba(168,4,4,1) 0%, rgba(110, 101, 101, 0.804) 50%, rgba(122,122,132,1) 100%);
+    display: flex;
+    flex-direction: column;
+}

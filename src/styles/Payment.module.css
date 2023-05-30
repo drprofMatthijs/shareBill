@@ -1,0 +1,20 @@
+.container{
+    max-width: var(--mwidth);
+    margin: 0 auto;
+}
+
+
+.betaalButton{
+    font-size: 18px;
+    margin-top: 40px;
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: rgb(82, 82, 215);
+    border: none;
+    border-radius: 5px;
+}
+
+.successWrapper{
+    text-align: center;
+    gap: 20px;
+}
