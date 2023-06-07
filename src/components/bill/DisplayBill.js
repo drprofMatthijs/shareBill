@@ -11,9 +11,10 @@ export const currencySymbol = ['€', '$', '£']
 export default function DisplayBill() {
     const {bill, setBill} = useContext(BillContext)
 
+    // Calculate the new distribution when amount changes, number of participants changes or the share of a person is changed
     useEffect(() => {
-        calculateShare()
         console.log(bill)
+        calculateShare()
     }, [bill.bedrag, bill.participants?.length, bill.totalShare])
 
     const currentCurrency = currencySymbol[currencies.indexOf(bill.currency)]
@@ -35,25 +36,29 @@ export default function DisplayBill() {
         setBill({...bill, participants: newList, totalShare: share})
     }
 
+    // Calculate share evenly. The negative or positive rest amount is distributed over the first few participants.
     const calculateShare = () => {
         if(bill.participants && bill.bedrag){
-            const share = bill.bedrag / bill.totalShare
-            const newList = bill.participants.map((participant) => ({...participant, amount: Math.floor(share * participant.share)}))
-            const amountDivided = newList.map((participant) => participant.amount).reduce((a,b) => a+b, 0)
-            const difference = bill.bedrag - amountDivided
-            const left = Math.abs(difference)
-            setBill({...bill, participants: newList})
-            if(difference > 0){
-                for (let i=0; i < left; i++){
-                    newList[i].amount += 1
+            if(bill.participants.length > 0){
+                const share = bill.bedrag / bill.totalShare
+                const newList = bill.participants.map((participant) => ({...participant, amount: Math.floor(share * participant.share)}))
+                const amountDivided = newList.map((participant) => participant.amount).reduce((a,b) => a+b, 0)
+                const difference = bill.bedrag - amountDivided
+                const left = Math.abs(difference)
+                setBill({...bill, participants: newList})
+                if(difference > 0){
+                    for (let i=0; i < left; i++){
+                        newList[i].amount += 1
+                    }
                 }
-            }
-            if(difference < 0){
-                for (let i=0; i < left; i++){
-                    newList[i].amount -= 1
+                if(difference < 0){
+                    for (let i=0; i < left; i++){
+                        newList[i].amount -= 1
+                    }
                 }
+                setBill({...bill, participants: newList})
             }
-            setBill({...bill, participants: newList})
+
         }
     }
 
@@ -102,7 +107,7 @@ export default function DisplayBill() {
   )
 }
 
-
+// Display the amount with cent decimals
 export const displayAmount = (amount) => {
     return (amount / 100).toFixed(2).replace('.', ',')
 }

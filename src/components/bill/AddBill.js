@@ -11,6 +11,8 @@ export default function AddBill() {
     const {bill, setBill} = useContext(BillContext)
     const [personCount, setPersonCount] = useState(0)
 
+
+    // Add new participants
     const handleClick = (e) =>{
         e.preventDefault()
         if(!nameInput == ""){

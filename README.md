@@ -1,5 +1,3 @@
-De applicatie is in Next.js gebouwd.
-
 Installeer de dependencies met: 
 - npm install
 
